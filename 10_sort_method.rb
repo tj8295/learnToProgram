@@ -1,4 +1,4 @@
-def sort some_array # This "wraps" recursive_sort.
+def dictionary_sort some_array # This "wraps" recursive_sort.
     recursive_sort some_array, []
 end
 

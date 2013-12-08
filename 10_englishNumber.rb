@@ -16,7 +16,6 @@ def english_number number
 left = number
 
 write = left/100 # How many hundreds left?
-puts  write.to_s + "is write"
 left = left - write * 100 # Subtract off those hundredfiftys.
 
 if write > 0
