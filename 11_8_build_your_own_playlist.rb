@@ -1,28 +1,44 @@
 # puts Dir['ParisHilton.jpg']
 # /Users/Tom/rails_3_tutorial/workspace/rails_first/learn_to_program/music
-Dir.chdir '/Users/Tom/photos_renamed'
+# Dir.chdir '/Users/Tom/photos_renamed'
 # First we find all of the pictures to be moved.
 
-pic_names = Dir['/Users/Tom/photos_rename_these/**/*.jpg']
-puts 'What would you like to call this batch?'
-batch_name = gets.chomp
+song_names = Dir['/Users/Tom/rails_3_tutorial/workspace/rails_first/learn_to_program/music/*.mp3']
+song_names.shuffle!
+puts 'What would you like to call this playlist?'
+playlist_name = gets.chomp
+playlist_name = playlist_name + '.m3u'
 puts
-print "Downloading #{pic_names.length} files: "
-# This will be our counter. We'll start at 1
-pic_number = 1
-pic_names.each do |name|
-  print '.'  # This is our "progress bar".
-  new_name = if pic_number < 10
-                         "#{batch_name}0#{pic_number}.jpg"
-                       else
-                          "#{batch_name}#{pic_number}.jpg"
-                       end
-  if File.exist?(new_name)
-    puts 'File already exists'
-  else
-    File.rename name, new_name
-  end
-  pic_number = pic_number + 1
-end
+print "Processing #{song_names.length} files: "
 
-puts "Done"
+song_list_string = ""
+
+song_names.each do |name|
+  puts "Adding song #{name}"
+  song_list_string = song_list_string +
+                               "/Users/Tom/rails_3_tutorial/workspace/rails_first/learn_to_program/music/#{name}\n"
+  end
+
+File.open playlist_name, 'w' do |f|
+    f.write(song_list_string)
+  end
+
+puts "Playlist #{playlist_name} finished"
+
+
+# song_names.each do |name|
+#   print '.'  # This is our "progress bar".
+#   new_name = if song_number < 10
+#                          "#{batch_name}0#{song_number}.jpg"
+#                        else
+#                           "#{batch_name}#{song_number}.jpg"
+#                        end
+#   if File.exist?(new_name)
+#     puts 'File already exists'
+#   else
+#     File.rename name, new_name
+#   end
+#   song_number = song_number + 1
+# end
+
+# puts "Done"
