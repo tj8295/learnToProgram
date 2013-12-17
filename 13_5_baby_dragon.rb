@@ -88,13 +88,20 @@ class Dragon
   end # end passage_of_time method
 end # end class
 
-pet = Dragon.new 'Norbert'
-pet.feed
-pet.toss
-pet.walk
-pet.put_to_bed
-pet.rock
-pet.put_to_bed
-pet.put_to_bed
-pet.put_to_bed
-pet.put_to_bed
+
+puts 'Please name your dragon.'
+name = gets.chomp
+pet = Dragon.new name
+obj = Object.new
+while true
+  puts 'Please tell the dragon what to do.'
+  puts 'Feed, walk, put to bed, toss, rock'
+
+  command = gets.chomp
+
+  if pet.respond_to?(command) && !obj.respond_to?(command)
+    pet.send command
+  else
+    puts 'Hunh? Please use a valid command'
+  end
+end
