@@ -25,3 +25,6 @@ yaml_save test_array, filename
 read_array = yaml_load filename
 # We weep for the po' fools that ain't got it...
 puts(read_array == test_array)
+
+
+birthday_string = File.read birthdays.txt
