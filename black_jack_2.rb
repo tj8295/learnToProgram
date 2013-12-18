@@ -101,7 +101,7 @@ while dealertotal < 17
   end
 
   if dealertotal > 21
-    puts "Dealer busted. You win"
+    puts "Dealer busted. You win."
     exit
   end
 end

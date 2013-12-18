@@ -12,13 +12,14 @@ class Array
     end
   end
 end
+
 fruits = ['apple', 'bad apple', 'cherry', 'durian']
 fruits.each_even do |fruit|
   puts "Yum!  I just love #{fruit} pies, don't you?"
 end
 #  Remember, we are getting the even-numbered *elements*
 #  of the array, which in this case are all odd numbers,
-#  becuase I live on ly to irritate you.
+#  becuase I live only to irritate you.
 [1, 2, 3, 4, 5].each_even do |odd_ball|
   puts "#{odd_ball} is NOT an even number!"
 end
